@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2026 | For My Muchki</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;500;700&family=Handlee&family=Permanent+Marker&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --sis-purple: #b79ced;
+            --sis-pink: #ff85a1;
+            --paper: #ffffff;
+        }
+
+        body {
+            font-family: 'Fredoka', sans-serif;
+            background-color: #f8f0ff;
+            background-image: radial-gradient(#dcd0ff 1px, transparent 1px);
+            background-size: 30px 30px;
+            color: #2d1b4d;
+            overflow-x: hidden;
+            margin: 0;
+        }
+
+        .font-hand { font-family: 'Handlee', cursive; }
+        .font-marker { font-family: 'Permanent Marker', cursive; }
+
+        /* Progress Bar */
+        .progress-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 6px;
+            background: #eee;
+            z-index: 1000;
+        }
+        #progress-bar {
+            height: 100%;
+            width: 15%;
+            background: linear-gradient(to right, #ff85a1, #b79ced);
+            transition: width 0.4s ease;
+        }
+
+        /* Animations */
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(5deg); }
+        }
+        .float { animation: float 5s ease-in-out infinite; }
+
+        .scene {
+            display: none;
+            min-height: 100vh;
+            padding: 20px;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            animation: fadeIn 0.8s ease-out;
+        }
+        .scene.active { display: flex; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .paper {
+            background: var(--paper);
+            box-shadow: 15px 15px 0px rgba(183, 156, 237, 0.3);
+            border-radius: 12px;
+            position: relative;
+            border: 1px solid #e0d4ff;
+        }
+
+        .btn-sis {
+            background: #b79ced;
+            color: white;
+            padding: 16px 40px;
+            border-radius: 16px;
+            font-weight: 700;
+            box-shadow: 0 6px 0 #8a6ec0;
+            transition: all 0.2s;
+        }
+        .btn-sis:hover { transform: translateY(-2px); box-shadow: 0 8px 0 #8a6ec0; }
+        .btn-sis:active { transform: translateY(4px); box-shadow: 0 2px 0 #8a6ec0; }
+
+        .tape {
+            background: rgba(255, 133, 161, 0.4);
+            width: 120px;
+            height: 35px;
+            position: absolute;
+            z-index: 10;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="progress-container">
+        <div id="progress-bar"></div>
+    </div>
+
+    <section id="scene-0" class="scene active">
+        <div class="relative">
+            <div class="paper p-10 text-center transform -rotate-1">
+                <div class="tape" style="top:-18px; left:25%; transform: rotate(-3deg);"></div>
+                <h2 class="text-lg opacity-60 mb-2 uppercase tracking-[0.2em]">Hey Muchki!</h2>
+                <h1 class="text-6xl font-marker text-[#b79ced]">2026</h1>
+                <p class="font-hand text-2xl mt-4">Is going to be OUR year 🥂</p>
+                <div class="mt-8 bg-purple-50 rounded-2xl p-6 flex items-center gap-5 border border-purple-100">
+                    <div class="text-5xl float">👩‍❤️‍👩</div>
+                    <div class="text-left">
+                        <p class="font-bold text-lg">Target: Muchki</p>
+                        <p class="text-sm opacity-60 italic">From: Your favorite sibling</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button onclick="next(1)" class="btn-sis mt-12 uppercase tracking-widest">Open Your Surprise</button>
+    </section>
+
+    <section id="scene-1" class="scene">
+        <div class="paper p-8 max-w-sm w-full transform rotate-1 text-center border-2 border-purple-200">
+            <h2 class="font-marker text-3xl text-[#ff85a1] mb-6">Best Sister Award</h2>
+            <div class="text-7xl mb-6">🎖️</div>
+            <p class="font-hand text-xl mb-4">Certified MVP for:</p>
+            <ul class="space-y-3 text-left bg-purple-50 p-5 rounded-2xl font-hand text-lg">
+                <li>🌟 Dealing with my 2AM thoughts</li>
+                <li>🌟 Giving the best (and worst) advice</li>
+                <li>🌟 Not telling Mom/Dad everything... yet</li>
+                <li>🌟 Simply being the best Muchki ever</li>
+            </ul>
+            <button onclick="next(2)" class="w-full mt-8 py-4 bg-[#ff85a1] text-white rounded-2xl font-bold shadow-lg hover:opacity-90 transition-all">SEE OUR 2026 GOALS ➔</button>
+        </div>
+    </section>
+
+    <section id="scene-2" class="scene">
+        <div class="paper p-10 w-full max-w-xs transform -rotate-1">
+            <h2 class="font-hand text-4xl mb-8 underline decoration-[#b79ced] decoration-4">Sis Vibe Check</h2>
+            <div class="space-y-8">
+                <div class="flex items-center gap-5 group">
+                    <div class="w-10 h-10 rounded-xl bg-pink-100 flex items-center justify-center group-hover:scale-110 transition-transform">🍿</div>
+                    <p class="font-medium text-lg">More movie marathons</p>
+                </div>
+                <div class="flex items-center gap-5 group">
+                    <div class="w-10 h-10 rounded-xl bg-purple-100 flex items-center justify-center group-hover:scale-110 transition-transform">🗺️</div>
+                    <p class="font-medium text-lg">Planning a secret trip</p>
+                </div>
+                <div class="flex items-center gap-5 group">
+                    <div class="w-10 h-10 rounded-xl bg-blue-100 flex items-center justify-center group-hover:scale-110 transition-transform">💪</div>
+                    <p class="font-medium text-lg">Growing together</p>
+                </div>
+            </div>
+            <button onclick="next(3)" class="btn-sis w-full mt-12">NEXT UP...</button>
+        </div>
+    </section>
+
+    <section id="scene-3" class="scene">
+        <div class="relative w-72 h-80 cursor-pointer" onclick="flipCard(this)">
+            <div id="card-inner" class="relative w-full h-full transition-all duration-700" style="transform-style: preserve-3d;">
+                <div class="absolute inset-0 bg-white p-8 paper flex flex-col items-center justify-center text-center backface-hidden">
+                    <div class="text-7xl mb-4">💌</div>
+                    <h2 class="font-marker text-2xl mb-2 text-purple-600">A Secret for Muchki</h2>
+                    <p class="font-hand text-lg opacity-50">Tap to flip!</p>
+                </div>
+                <div class="absolute inset-0 bg-purple-100 p-8 paper flex items-center justify-center text-center" style="transform: rotateY(180deg); backface-visibility: hidden;">
+                    <p class="font-hand text-2xl leading-relaxed text-purple-900">
+                        "No matter how much we fight, you're the first person I want to tell everything to." 💖
+                    </p>
+                </div>
+            </div>
+        </div>
+        <button onclick="next(4)" class="mt-16 btn-sis">Read My Letter</button>
+    </section>
+
+    <section id="scene-4" class="scene">
+        <div class="text-center w-64">
+            <div class="text-6xl mb-6 float">💖</div>
+            <h2 class="font-marker text-2xl mb-2">Finalizing 2026...</h2>
+            <div class="w-full h-4 bg-white rounded-full mt-4 overflow-hidden border border-purple-200">
+                <div id="loader" class="h-full bg-[#b79ced] w-0 transition-all"></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="scene-5" class="scene">
+        <div class="paper p-10 max-w-md w-full relative">
+            <h2 class="font-marker text-3xl text-purple-600 mb-6">Dearest Muchki,</h2>
+            
+            <div class="space-y-5 font-hand text-xl leading-relaxed text-gray-800">
+                <p>I wanted to take a second to tell you how much you mean to me. I know I don't always say it, but I am so incredibly lucky to have you as my sister.</p>
+                
+                <p class="font-bold text-[#ff85a1]">"I promise that in 2026, and every year after, I will always be there for you. Whether you need a shoulder to cry on, someone to laugh with, or just someone to protect you—I'm your person."</p>
+                
+                <p>Let's make this year legendary. I've always got your back, Muchki. Always. 🌎✨</p>
+            </div>
+
+            <div class="mt-10 pt-6 border-t border-dashed border-purple-200 text-center">
+                <p class="text-xs uppercase font-bold tracking-widest opacity-40 mb-6">Infinite Love, Your Sibling</p>
+                <button onclick="location.reload()" class="btn-sis scale-90">RESTART OUR STORY</button>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        function next(id) {
+            // Update Progress Bar
+            const progress = ((id) / 5) * 100;
+            document.getElementById('progress-bar').style.width = progress + '%';
+
+            // Switch Scenes
+            document.querySelectorAll('.scene').forEach(s => s.classList.remove('active'));
+            const target = document.getElementById('scene-' + id);
+            target.classList.add('active');
+            
+            if (id === 4) {
+                let p = 0;
+                const load = setInterval(() => {
+                    p += 5;
+                    document.getElementById('loader').style.width = p + '%';
+                    if (p >= 100) {
+                        clearInterval(load);
+                        setTimeout(() => next(5), 600);
+                    }
+                }, 100);
+            }
+        }
+
+        function flipCard(el) {
+            const inner = el.querySelector('#card-inner');
+            inner.style.transform = inner.style.transform === 'rotateY(180deg)' ? 'rotateY(0deg)' : 'rotateY(180deg)';
+        }
+    </script>
+</body>
+</html>
